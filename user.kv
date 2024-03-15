@@ -1,0 +1,113 @@
+<user_infor>:
+    name:'sub4'
+    canvas:
+        Rectangle:
+            source:'pink.png'
+            size:self.size
+            pos:self.pos
+
+        RoundedRectangle:
+            source:"bg1.png"
+            size:300,200
+            pos:200,300
+            radius:[(20, 20), (20, 20), (20, 20), (20, 20)]
+        RoundedRectangle:
+            source:"user_bg.png"
+            size:300,200
+            pos:530,300
+            radius:[(20, 20), (20, 20), (20, 20), (20, 20)]
+
+    Label:
+        id:title
+        text:"User module"
+        font_size:'35sp'
+        halign:'left'
+        bold:True
+        pos:30,200
+    GridLayout:
+        GridLayout:
+            size:100,200
+            cols:1
+            rows:2
+            pos:630,300
+            Label:
+                text:"User name"
+                font_size:'30sp'
+                halign:'left'
+                bold:True
+            Label:
+                id:user_name
+                text:"Guest"
+                font_size:'20sp'
+                halign:'left'
+                bold:True
+        GridLayout:
+            cols:1
+            rows:6
+            size:100,200
+            id:user_box
+            pos:300,300
+            Label:
+                text:"Your favorite singer"
+                font_size:'20sp'
+                halign:'left'
+                bold:True
+                underline:True
+            Label:
+                id:loved_singer
+                text:"None"
+                font_size:'15sp'
+                color:[0, 0, 255, 1]
+                halign:'left'
+                bold:True
+            Label:
+                text:"Your favorite song"
+                font_size:'20sp'
+                bold:True
+                halign:'left'
+                underline:True
+            Label:
+                id:loved_song
+                text:"None"
+                font_size:'15sp'
+                color:[0, 0, 255, 1]
+                halign:'left'
+                bold:True
+            Label:
+                text:"Number of song listening"
+                font_size:'20sp'
+                bold:True
+                halign:'left'
+                underline:True
+            Label:
+                id:loved_song_times
+                text:"None"
+                font_size:'15sp'
+                color:[0, 0, 255, 1]
+                halign:'left'
+                bold:True
+        GridLayout:
+            cols:2
+            rows:1
+            size:500,150
+            pos:280,150
+            Button:
+                id:but_log_out
+                text:"Log out"
+                size_hint:.3,.90
+                pos:215,300
+                on_press:root.user_log_out()
+                border:30,30,30,30
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+                background_normal:"b1.png"
+
+            Button:
+                id:but_back
+                text:"Back"
+                size_hint:.3,.90
+                pos:215,300
+                on_press:root.manager.current = 'sub3'
+                border:30,30,30,30
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+                background_normal:"b1.png"
+

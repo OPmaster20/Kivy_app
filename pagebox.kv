@@ -1,0 +1,136 @@
+<mainpage>:
+    name:'sub3'
+    canvas:
+        Rectangle:
+            source:'pink.png'
+            size:self.size
+            pos:self.pos
+
+    Splitter:
+        sizable_from:'right'
+        enableAnimation:True
+        animationSpeed:300
+        min_size:30
+        max_size:250
+        keep_within_parent:True
+        strip_size:'10pt'
+        id:splitter
+        BoxLayout:
+            orientation:'vertical'
+            Label:
+                id:apple
+                text:"Apple music"
+                font_size:'30sp'
+                bold:True
+            Carousel:
+                id:car
+                direction: 'right'
+                loop:True
+                AsyncImage:
+                    source: 'B1.jpg'
+                AsyncImage:
+                    source: 'B2.jpg'
+                AsyncImage:
+                    source: 'B3.jpg'
+                AsyncImage:
+                    source: 'B4.jpg'
+
+
+
+    GridLayout:
+        id:grid4
+        GridLayout:
+            cols:1
+            rows:1
+            size:380,40
+            pos: (400,670)
+            TextInput:
+                id:song_name
+                multiline:True
+                background_normal:"border1.png"
+                background_active:"border1.png"
+                size:20,30
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+        Button:
+            id:but_song
+            size:75,75
+            on_press:root.search_songs()
+            pos: 770,654
+            background_normal:"search.png"
+        GridLayout:
+            cols:4
+            rows:2
+            size:490,70
+            pos: (450,110)
+            canvas:
+                RoundedRectangle:
+                    source:"auus.png"
+                    size:500,150
+                    pos:450,80
+                    radius:[(20, 20), (20, 20), (20, 20), (20, 20)]
+            Label:
+                id:L1
+                text:"None"
+                pos:10, 50
+                font_size:"20sp"
+                color:[0, 0, 0, 1]
+            Button:
+                id:play
+                size:10,50
+                text:"Play"
+                background_normal:"but1.png"
+                on_press:root.play_listen()
+            Button:
+                id:stop
+                size:10,50
+                text:"next"
+                background_normal:"but1.png"
+        BoxLayout:
+            name:"main"
+            id:box_id
+            size:300,50
+            pos:560,75
+
+            Label:
+                id:L2
+                text:"0"
+                pos:500, 80
+                font_size:"10sp"
+                color:[0, 0, 0, 1]
+            ProgressBar:
+                value:0
+                id:bar
+                max:100
+                size:300,20
+            Label:
+                id:L3
+                text:"10"
+                pos:600, 80
+                font_size:"10sp"
+                color:[0, 0, 0, 1]
+
+        ActionBar:
+            size:(root.width, 60)
+            pos_hint: {'top':3}
+            background_color: .6, 4, .2, .6
+            ActionView:
+                use_separator: True
+                ActionPrevious:
+                    title: 'APPLE HOME'
+                    with_previous: False
+                ActionCheck:
+                    text:"CHECK"
+                ActionOverflow:
+                    ActionButton:
+                        important: True
+                        text: 'User'
+                        on_press:root.manager.current = 'sub4'
+                    ActionButton:
+                        text: 'Setting'
+                        on_press:app.open_settings()
+
+
+
+
+
+

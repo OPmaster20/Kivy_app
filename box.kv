@@ -1,0 +1,292 @@
+<init_box>:
+    BoxLayout:
+        name:"main"
+        id:box_id
+        orientation:'vertical'
+        size:200,300
+        canvas:
+            Rectangle:
+                source:'pink.png'
+                size:self.size
+                pos:self.pos
+        Label:
+            text:"Welcome to my software"
+            id:label_id
+            font_size:"40sp"
+            color:[1, 1, 1, 1]
+            bold:True
+        Label:
+            text:"0"
+            id:count_id
+            font_size:"15sp"
+            color:[1, 1, 1, 1]
+        Button:
+            id:but1
+            text:"Enter our world"
+            size_hint:.3,.90
+            pos:215,300
+            opacity:0
+            disabled:True
+            on_press:root.manager.current = 'sub1'
+            border:30,30,30,30
+            pos_hint: {'center_x':0.5, 'center_y': 0.5}
+            background_normal:"b1.png"
+        ProgressBar:
+            value:0
+            id:pd_id
+            max:100
+            run_pd:root.up()
+            size_hint:(.5, 1)
+            pos_hint: {'center_x':0.5, 'center_y': 0.5}
+
+
+<register_user>:
+    GridLayout:
+        name:"register"
+        id:re_box
+        canvas:
+            Rectangle:
+                source:'pink.png'
+                size:self.size
+                pos:self.pos
+            RoundedRectangle:
+                source:'a6.png'
+                size:400,400
+                pos:self.pos
+                radius:[(5, 5), (5, 5), (5, 5), (5, 5)]
+
+        canvas.after:
+            Rectangle:
+                source:root.code_file_name
+                size:250,100
+                pos:250,80
+        GridLayout:
+            cols:1
+            size:250,500
+            pos: 250,200
+            Label:
+                text:"New username"
+                font_size:"25sp"
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+            TextInput:
+                id:register_username
+                multiline:False
+                size:100,200
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+                background_normal:"border1.png"
+                background_active:"border1.png"
+                fit_mode:'fill'
+
+            Label:
+                text:"New password"
+                font_size:"25sp"
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+            TextInput:
+                id:register_password
+                multiline:False
+                size:100,200
+                password:True
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+                background_normal:"border1.png"
+                background_active:"border1.png"
+                fit_mode:'fill'
+
+            Label:
+                text:"Confirm new password"
+                font_size:"25sp"
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+            TextInput:
+                id:confirm_password
+                multiline:False
+                size:100,200
+                password:True
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+                background_normal:"border1.png"
+                background_active:"border1.png"
+                fit_mode:'fill'
+
+
+            Label:
+                text:"e-mail address"
+                font_size:"25sp"
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+            TextInput:
+                id:register_email
+                multiline:False
+                size:100,200
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+                background_normal:"border1.png"
+                background_active:"border1.png"
+                fit_mode:'fill'
+
+            Label:
+                text:"Verification code"
+                font_size:"25sp"
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+
+            TextInput:
+                id:vcode
+                multiline:False
+                size:100,200
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+                background_normal:"border1.png"
+                background_active:"border1.png"
+                fit_mode:'fill'
+
+        GridLayout:
+            cols:1
+            size:250,200
+            pos: 660,250
+            Button:
+                text:"Log in"
+                size:100,300
+                pos:215,300
+                font_size:"25sp"
+                on_press:root.proof()
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+                background_normal:"b2.png"
+            Button:
+                text:"Back"
+                size:100,300
+                pos:215,300
+                font_size:"25sp"
+                on_press:root.manager.current = 'sub1'
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+                background_normal:"b2.png"
+
+
+
+
+<init_user>:
+    GridLayout:
+        canvas:
+            Rectangle:
+                source:'pink.png'
+                size:self.size
+                pos:self.pos
+
+
+
+
+        Label:
+            text:"APPLE HOMIE"
+            id:text20
+            font_size:"70sp"
+            pos:480,500
+            bold:True
+            color:[1, 1, 1, 1]
+
+        GridLayout:
+            name:"sub1"
+            id:box2_id
+            cols:2
+            rows:4
+            size:600,300
+            pos: 200,150
+            Label:
+                text:"Username"
+                id:text1
+                font_size:"30sp"
+                bold:True
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+            TextInput:
+                id:username
+                multiline:False
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+                background_normal:"border1.png"
+                background_active:"border1.png"
+                fit_mode:'fill'
+            Label:
+                text:"Password"
+                id:text2
+                font_size:"30sp"
+                bold:True
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+
+            TextInput:
+                id:password
+                multiline:False
+                size:10,20
+                password:True
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+                background_normal:"border1.png"
+                background_active:"border1.png"
+                fit_mode:'fill'
+            Button:
+                id:but2
+                text:"Log in"
+                font_size:"20sp"
+                background_normal:"b2.png"
+                pos:215,400
+                on_press:root.output()
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+            Button:
+                id:but3
+                text:"Back"
+                font_size:"20sp"
+                background_normal:"b2.png"
+                pos:215,400
+                on_press:root.manager.current = 'main'
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+            Button:
+                id:but3
+                text:"Guest login"
+                font_size:"20sp"
+                background_normal:"b2.png"
+                pos:315,400
+                on_press:root.manager.current = 'sub2'
+
+            Button:
+                id:but_re
+                text:"register"
+                font_size:"20sp"
+                background_normal:"b2.png"
+                pos:215,300
+                on_press:root.manager.current = 'register'
+
+
+
+<qr_log_in>:
+    name:'sub2'
+    id:grid2
+    canvas:
+        Rectangle:
+            source:'pink.png'
+            size:self.size
+            pos:self.pos
+    canvas.after:
+        RoundedRectangle:
+            source:"qrcode1.png"
+            size:430, 430
+            pos:120, 150
+            radius:[(20, 20), (20, 20), (20, 20), (20, 20)]
+
+    GridLayout:
+        id:grid3
+
+        GridLayout:
+            cols:1
+            rows:3
+            size:200,220
+            pos: 600,300
+            TextInput:
+                id:Verification_code
+                multiline:False
+                background_normal:"border1.png"
+                background_active:"border1.png"
+                fit_mode:'fill'
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+            Button:
+                id:but4
+                text:"Verify"
+                font_size:"20sp"
+                background_normal:"b2.png"
+                on_press:root.qr_code_vairty()
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
+            Button:
+                id:but4
+                text:"Back"
+                font_size:"20sp"
+                background_normal:"b2.png"
+                on_press:root.manager.current = 'sub1'
+                pos_hint: {'center_x':0.5, 'center_y': 0.5}
